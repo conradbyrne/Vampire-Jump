@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq4abfbxt05ec"]
+[gd_scene load_steps=4 format=3 uid="uid://cq4abfbxt05ec"]
 
 [ext_resource type="PackedScene" uid="uid://ykky8pet1fvh" path="res://player.tscn" id="1_4qeqg"]
 [ext_resource type="PackedScene" uid="uid://dy2tpsjedhmqt" path="res://platform.tscn" id="2_77iun"]
+[ext_resource type="Texture2D" uid="uid://cdvfada2l4kp3" path="res://Assets/TempBackground.png" id="3_77iun"]
 
 [node name="World Scene" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 800)
+
+[node name="Background" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 556.0
+offset_bottom = 1120.0
+texture = ExtResource("3_77iun")
 
 [node name="Player" parent="." instance=ExtResource("1_4qeqg")]
 visible = true
@@ -27,3 +38,15 @@ position = Vector2(372, 357)
 
 [node name="Platform6" parent="." instance=ExtResource("2_77iun")]
 position = Vector2(267, 783)
+
+[node name="Platform7" parent="." instance=ExtResource("2_77iun")]
+position = Vector2(145, 236)
+
+[node name="Platform8" parent="." instance=ExtResource("2_77iun")]
+position = Vector2(375, 70)
+
+[node name="Platform9" parent="." instance=ExtResource("2_77iun")]
+position = Vector2(183, -101)
+
+[node name="Platform10" parent="." instance=ExtResource("2_77iun")]
+position = Vector2(399, -116)
