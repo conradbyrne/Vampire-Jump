@@ -1,0 +1,12 @@
+# Godot-specific
+.import/
+.godot/
+mono/
+*.import
+*.tmp
+*.translation
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
