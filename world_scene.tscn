@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq4abfbxt05ec"]
+
+[ext_resource type="PackedScene" uid="uid://ykky8pet1fvh" path="res://player.tscn" id="1_4qeqg"]
+[ext_resource type="PackedScene" uid="uid://dy2tpsjedhmqt" path="res://platform.tscn" id="2_77iun"]
+
+[node name="World Scene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4qeqg")]
+visible = true
+position = Vector2(266, 725)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Platform" parent="." instance=ExtResource("2_77iun")]
+
+[node name="Platform2" parent="." instance=ExtResource("2_77iun")]
+position = Vector2(104, 637)
+
+[node name="Platform3" parent="." instance=ExtResource("2_77iun")]
+position = Vector2(423, 575)
+
+[node name="Platform4" parent="." instance=ExtResource("2_77iun")]
+position = Vector2(166, 458)
+
+[node name="Platform5" parent="." instance=ExtResource("2_77iun")]
+position = Vector2(372, 357)
+
+[node name="Platform6" parent="." instance=ExtResource("2_77iun")]
+position = Vector2(267, 783)
