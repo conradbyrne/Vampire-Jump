@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://130ckk14ca5t"]
+
+[ext_resource type="PackedScene" uid="uid://cuabnx52d0td2" path="res://player/Player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://dax3mrnoo5mli" path="res://assets/TempBackground.png" id="2_rlxyy"]
+[ext_resource type="Script" uid="uid://6dxx7gwnm5s0" path="res://levels/Level.gd" id="3"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("3")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, -511)
+scale = Vector2(1.41778, 1.06458)
+texture = ExtResource("2_rlxyy")
+centered = false
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1")]
+position = Vector2(180.852, 116.708)
