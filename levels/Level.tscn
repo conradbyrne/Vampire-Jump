@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://130ckk14ca5t"]
 
 [ext_resource type="PackedScene" uid="uid://cuabnx52d0td2" path="res://player/Player.tscn" id="1"]
-[ext_resource type="Texture2D" uid="uid://dax3mrnoo5mli" path="res://assets/TempBackground.png" id="2_rlxyy"]
+[ext_resource type="Texture2D" uid="uid://cdvfada2l4kp3" path="res://Assets/TempBackground.png" id="2_rlxyy"]
 [ext_resource type="Script" uid="uid://6dxx7gwnm5s0" path="res://levels/Level.gd" id="3"]
 
 [node name="Level" type="Node2D"]
@@ -22,3 +22,10 @@ centered = false
 
 [node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(180.852, 116.708)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 244.0
+offset_top = 9.0
+offset_right = 284.0
+offset_bottom = 32.0
+text = "Score: 0"

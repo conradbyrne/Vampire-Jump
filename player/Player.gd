@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var gravity: = 8.0 * 60
 @export var speed = 3.0 * 60
 var dir = 0.0
+var was_boosted = false
 
 @onready var screen_size = get_viewport_rect().size
 
@@ -23,9 +24,18 @@ func _physics_process(delta:float)->void:
 	velocity.y += gravity*delta
 	# bouncing on platforms
 	if is_on_floor():
-		velocity.y = -jump_force
+		if was_boosted:
+			# If we were boosted, don't bounce again
+			was_boosted = false
+		else:
+			# Normal bounce on platforms
+			velocity.y = -jump_force
 	
 	velocity.x = dir * speed
 	#set_velocity(velocity)
 	move_and_slide()
 	screen_wrap()
+	
+func _on_spring_activated():
+	velocity.y = -1000  # Stronger negative value than normal jump
+	was_boosted = true
