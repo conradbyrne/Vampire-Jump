@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://cpuhn4dxhlupe"]
 
-[ext_resource type="Texture2D" uid="uid://du8phdc7t8x0" path="res://assets/Coffin.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bqyy1glo5i5ir" path="res://assets/Coffin.png" id="1"]
+
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(32, 32)
+
 [node name="Coffin" type="Area2D"]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")

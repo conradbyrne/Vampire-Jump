@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://130ckk14ca5t"]
 
 [ext_resource type="PackedScene" uid="uid://cuabnx52d0td2" path="res://player/Player.tscn" id="1"]
-[ext_resource type="Texture2D" uid="uid://bi8u5117bbmv3" path="res://assets/TempBackground.png" id="2_rlxyy"]
+[ext_resource type="Texture2D" uid="uid://cdvfada2l4kp3" path="res://assets/TempBackground.png" id="2_rlxyy"]
 [ext_resource type="Script" uid="uid://6dxx7gwnm5s0" path="res://levels/Level.gd" id="3"]
 
 [node name="Level" type="Node2D"]
