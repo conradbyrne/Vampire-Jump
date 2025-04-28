@@ -5,37 +5,46 @@ extends CharacterBody2D
 @export var speed = 3.0 * 60
 var dir = 0.0
 var was_boosted = false
+var jetpack_timer = 0.0
 
 @onready var screen_size = get_viewport_rect().size
 
 # Function for screen wrapping
 func screen_wrap():
-	# If player has moved beyond the right side of the screen, set position to left side
+	# Wrap right
 	if position.x > screen_size.x:
 		position.x = 0
-	# If player has moved beyond the left side of the screen, set position to right side
+	# Wrap left
 	if position.x < 0:
 		position.x = screen_size.x
 
-func _physics_process(delta:float)->void:
+func _physics_process(delta: float) -> void:
+	# Jetpack override
+	if jetpack_timer > 0:
+		jetpack_timer -= delta
+		velocity.y = -jump_force
+	else:
+		# gravity
+		velocity.y += gravity * delta
+
 	# Change direction based on input
 	dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	# gravity
-	velocity.y += gravity*delta
-	# bouncing on platforms
+
+	# Bouncing on platforms
 	if is_on_floor():
 		if was_boosted:
-			# If we were boosted, don't bounce again
 			was_boosted = false
 		else:
-			# Normal bounce on platforms
 			velocity.y = -jump_force
-	
+
 	velocity.x = dir * speed
-	#set_velocity(velocity)
 	move_and_slide()
 	screen_wrap()
-	
+
 func _on_spring_activated():
-	velocity.y = -1000  # Stronger negative value than normal jump
+	velocity.y = -500
 	was_boosted = true
+
+func _on_coffin_entered(body):
+	if body == self:
+		jetpack_timer = 2.0  # Jetpack lasts 2 seconds
