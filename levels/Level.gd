@@ -39,6 +39,10 @@ func _ready() -> void:
 		inst.items_spawned = false   # flag on each Platform
 		platform_parent.add_child(inst)
 		platforms.append(inst)
+	
+	# Set initial platform position under player
+	player.global_position.x = rand_x()
+	platforms.back().global_position.x = player.global_position.x
 
 func _physics_process(delta: float) -> void:
 	if player.global_position.y < threshold:
